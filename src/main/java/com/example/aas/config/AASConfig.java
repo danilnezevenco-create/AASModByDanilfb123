@@ -1,0 +1,279 @@
+// PATH: src\main\java\com\example\aas\config\AASConfig.java
+package com.example.aas.config;
+import net.minecraftforge.common.ForgeConfigSpec;
+
+public class AASConfig {
+    public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+    public static final ForgeConfigSpec SPEC;
+    public static final ForgeConfigSpec.Builder CLIENT_BUILDER = new ForgeConfigSpec.Builder();
+    public static final ForgeConfigSpec CLIENT_SPEC;
+    public static final ForgeConfigSpec.IntValue COMPASS_SCALE;
+    // Разное
+    public static final ForgeConfigSpec.BooleanValue LOW_TICKETS_SIREN;
+    public static final ForgeConfigSpec.BooleanValue AGS_PROJECTILE_DESTRUCTION;
+    public static final ForgeConfigSpec.BooleanValue AMMO_STACK_DESTRUCTION;
+    public static final ForgeConfigSpec.DoubleValue DIGGING_SPEED_MULTIPLIER;
+    public static final ForgeConfigSpec.BooleanValue PREVENT_BLOCK_BREAKING;
+    public static final ForgeConfigSpec.BooleanValue PREVENT_ALL_ITEM_DROPS;
+    public static final ForgeConfigSpec.IntValue HUB_RESUPPLY_COST;
+    // === Особые правила пополнения для кита "Drone Operator" ===
+    public static final ForgeConfigSpec.IntValue DRONE_OPERATOR_CRATE_RESUPPLY_COST;
+    public static final ForgeConfigSpec.DoubleValue DRONE_OPERATOR_HUB_COST_MULTIPLIER;
+    public static final ForgeConfigSpec.IntValue DRONE_OPERATOR_VEHICLE_RESUPPLY_COST;
+    public static final ForgeConfigSpec.BooleanValue ONE_AMMO_BAG_PER_PLAYER;
+    public static final ForgeConfigSpec.BooleanValue REQUIRE_RIFLEMAN_FOR_AMMO_BAG;
+    public static final ForgeConfigSpec.BooleanValue SEPARATE_TEAM_DESTRUCTION_MESSAGES;
+    // === Особые правила пополнения для кита "Rifleman" ===
+    public static final ForgeConfigSpec.IntValue RIFLEMAN_CRATE_RESUPPLY_COST;
+    public static final ForgeConfigSpec.DoubleValue RIFLEMAN_HUB_COST_MULTIPLIER;
+    // === Особые правила пополнения для кита "Sapper" ===
+    public static final ForgeConfigSpec.IntValue SAPPER_CRATE_RESUPPLY_COST;
+    public static final ForgeConfigSpec.IntValue SAPPER_VEHICLE_RESUPPLY_COST;
+    public static final ForgeConfigSpec.DoubleValue SAPPER_HUB_COST_MULTIPLIER;
+    public static final ForgeConfigSpec.BooleanValue ENABLE_KNOCKOUT;
+    public static final ForgeConfigSpec.ConfigValue<String> REVIVE_ITEM;
+    public static final ForgeConfigSpec.IntValue REVIVE_COOLDOWN_SECONDS;
+    public static final ForgeConfigSpec.BooleanValue HUB_SPAWN_COSTS_MATERIALS;
+    public static final ForgeConfigSpec.IntValue HUB_SPAWN_MATERIAL_COST;
+    public static final ForgeConfigSpec.BooleanValue MAIN_SUPPLY_HEALING;
+    public static final ForgeConfigSpec.IntValue MAIN_SUPPLY_HEAL_RADIUS;
+    public static final ForgeConfigSpec.BooleanValue ALLOW_BREAKING_DEFENSES;
+    public static final ForgeConfigSpec.BooleanValue AUTO_GIVE_SL_RADIO;
+    public static final ForgeConfigSpec.BooleanValue HUB_PLACEMENT_REQUIRES_CRATE;
+    public static final ForgeConfigSpec.IntValue MAX_DOWNED_TIME_SECONDS;
+    public static final ForgeConfigSpec.IntValue VOTE_AUTO_START_TIME;
+    public static final ForgeConfigSpec.IntValue VOTE_REQUIRED_PERCENTAGE;
+    public static final ForgeConfigSpec.BooleanValue PREVENT_VEHICLE_INVENTORY_ACCESS;
+    public static final ForgeConfigSpec.BooleanValue REQUIRE_OFFICER_FOR_SL;
+    public static final ForgeConfigSpec.BooleanValue PREVENT_ENEMY_VEHICLE_ENTRY;
+    public static final ForgeConfigSpec.BooleanValue REQUIRE_SPECIALIST_TO_DRIVE;
+    public static final ForgeConfigSpec.BooleanValue AUTO_BALANCE_TEAMS;
+    public static final ForgeConfigSpec.IntValue ART_STRIKE_COOLDOWN_MINUTES;
+    // === Artillery ===
+    public static final ForgeConfigSpec.IntValue ART_INITIAL_COOLDOWN_MINUTES;
+    public static final ForgeConfigSpec.DoubleValue ART_REQUEST_RADIUS;
+    public static final ForgeConfigSpec.IntValue ART_REQUEST_MAX_DISTANCE;
+    public static final ForgeConfigSpec.IntValue ART_REQUEST_CONFIRM_SECONDS;
+    public static final ForgeConfigSpec.IntValue ART_REQUEST_LIFETIME_SECONDS;
+    public static final ForgeConfigSpec.IntValue ART_SHELL_SPAWN_HEIGHT;
+    public static final ForgeConfigSpec.IntValue ART_SILENCE_SECONDS;
+    public static final ForgeConfigSpec.IntValue ART_SALVO_SECONDS;
+    public static final ForgeConfigSpec.IntValue ART_REST_SECONDS;
+    public static final ForgeConfigSpec.IntValue ART_CIRCLE_SPOT_SHELLS;
+    public static final ForgeConfigSpec.IntValue ART_CIRCLE_SALVO_SHELLS;
+    public static final ForgeConfigSpec.IntValue ART_RECT_SPOT_SHELLS;
+    public static final ForgeConfigSpec.IntValue ART_RECT_SALVO_SHELLS;
+    public static final ForgeConfigSpec.IntValue ART_CIRCLE_MIN_RADIUS;
+    public static final ForgeConfigSpec.IntValue ART_CIRCLE_MAX_RADIUS;
+    public static final ForgeConfigSpec.IntValue ART_RECT_MIN_LENGTH;
+    public static final ForgeConfigSpec.IntValue ART_RECT_MAX_LENGTH;
+    public static final ForgeConfigSpec.IntValue ART_RECT_MIN_WIDTH;
+    public static final ForgeConfigSpec.IntValue ART_RECT_MAX_WIDTH;
+    public static final ForgeConfigSpec.IntValue ART_REQUEST_COOLDOWN_SECONDS;
+    // === Recon UAV ===
+    public static final ForgeConfigSpec.IntValue UAV_COOLDOWN_SECONDS;
+    public static final ForgeConfigSpec.IntValue UAV_MIN_RADIUS;
+    public static final ForgeConfigSpec.IntValue UAV_MAX_RADIUS;
+    public static final ForgeConfigSpec.IntValue UAV_DURATION_SECONDS;
+    public static final ForgeConfigSpec.IntValue UAV_ALTITUDE;
+    public static final ForgeConfigSpec.IntValue UAV_HEALTH;
+    public static final ForgeConfigSpec.DoubleValue UAV_SPEED;
+    public static final ForgeConfigSpec.ConfigValue<java.util.List<? extends Number>> UAV_ZOOM_FOV;
+    public static final ForgeConfigSpec.IntValue UAV_MAX_TILT;
+    public static final ForgeConfigSpec.IntValue INVASION_PREP_TIME_MINUTES;
+    public static final ForgeConfigSpec.IntValue REVIVE_HOLD_SECONDS;
+    public static final ForgeConfigSpec.IntValue MEDIC_REVIVE_HOLD_SECONDS;
+    public static final ForgeConfigSpec.BooleanValue RESTRICT_INTERACTIONS_TO_DOORS_GATES;
+    // Радиус балансов
+    public static final ForgeConfigSpec.IntValue MIN_HUB_DISTANCE;
+    public static final ForgeConfigSpec.IntValue MIN_RALLY_POINT_DISTANCE;
+    public static final ForgeConfigSpec.IntValue HUB_BLOCK_RADIUS;
+    public static final ForgeConfigSpec.IntValue RALLY_BLOCK_RADIUS;
+    public static final ForgeConfigSpec.IntValue HUB_SOUND_RADIUS;
+    public static final ForgeConfigSpec.IntValue HUB_BUILD_RADIUS;
+    public static final ForgeConfigSpec.IntValue CRATE_BUILD_RADIUS;
+    public static final ForgeConfigSpec.IntValue HUB_BLOCK_ENEMY_COUNT;
+    public static final ForgeConfigSpec.IntValue RALLY_BLOCK_ENEMY_COUNT;
+    public static final ForgeConfigSpec.IntValue SUPPLY_TRUCK_CRATES;
+    public static final ForgeConfigSpec.IntValue SUPPLY_CRATE_MATERIALS;
+    public static final ForgeConfigSpec.BooleanValue SHOW_KIT_RANKS;
+    public static final ForgeConfigSpec.IntValue VOICE_LOCAL_RANGE;
+    // Имена команд
+    public static final ForgeConfigSpec.ConfigValue<String> BLUE_TEAM_CUSTOM_NAME;
+    public static final ForgeConfigSpec.ConfigValue<String> RED_TEAM_CUSTOM_NAME;
+
+    static {
+        BUILDER.push("Gameplay Settings");
+        AGS_PROJECTILE_DESTRUCTION = BUILDER.comment("Grenade destruction").define("agsProjectileDestruction", true);
+        AMMO_STACK_DESTRUCTION = BUILDER.comment("Ammo explosion destruction").define("ammoStackDestruction", true);
+        DIGGING_SPEED_MULTIPLIER = BUILDER.comment("Digging speed multiplier").defineInRange("diggingSpeedMultiplier", 1.0, 0.1, 10.0);
+        RESTRICT_INTERACTIONS_TO_DOORS_GATES = BUILDER.comment(
+                        "If true, in Survival/Adventure mode players CANNOT interact with storage/loot " +
+                                "blocks: chests, trapped chests, ender chests, barrels, shulker boxes, " +
+                                "furnaces/blast furnaces/smokers, hoppers, dispensers/droppers, brewing stands, " +
+                                "trapdoors and anvils. Everything else (doors, fence gates, buttons, levers, " +
+                                "crafting table, etc.) is now allowed.")
+                .define("restrictInteractionsToDoorsAndGates", false);
+        PREVENT_BLOCK_BREAKING = BUILDER.comment("Prevent players from breaking blocks").define("preventBlockBreaking", false);
+        ALLOW_BREAKING_DEFENSES = BUILDER.comment("Allow players to break walls and barbed wire even if PREVENT_BLOCK_BREAKING is true").define("allowBreakingDefenses", true);
+        PREVENT_ALL_ITEM_DROPS = BUILDER.comment("Prevent item dropping in survival when game is started").define("preventAllItemDrops", false);
+        HUB_RESUPPLY_COST = BUILDER.comment("Cost for kit resupply").defineInRange("hubResupplyCost", 10, 0, 1000);
+        DRONE_OPERATOR_CRATE_RESUPPLY_COST = BUILDER.comment("Materials cost for 'Drone Operator' kit resupply from a Supply Crate (instead of the normal hubResupplyCost). If the crate has less than this amount, resupply is refused entirely.")
+                .defineInRange("droneOperatorCrateResupplyCost", 50, 0, 1000);
+        DRONE_OPERATOR_HUB_COST_MULTIPLIER = BUILDER.comment("Multiplier applied to hubResupplyCost when the 'Drone Operator' kit resupplies from a Hub/FOB.")
+                .defineInRange("droneOperatorHubCostMultiplier", 3.0, 1.0, 10.0);
+        DRONE_OPERATOR_VEHICLE_RESUPPLY_COST = BUILDER.comment("Materials cost for 'Drone Operator' kit resupply from a Vehicle (instead of the normal hubResupplyCost). If the vehicle has less than this amount, resupply is refused entirely.")
+                .defineInRange("droneOperatorVehicleResupplyCost", 50, 0, 1000);
+        RIFLEMAN_CRATE_RESUPPLY_COST = BUILDER.comment("Materials cost for 'Rifleman' kit resupply from a Supply Crate/vehicle (instead of the normal hubResupplyCost). If the crate has less than this amount, resupply is refused entirely.")
+                .defineInRange("riflemanCrateResupplyCost", 30, 0, 1000);
+        RIFLEMAN_HUB_COST_MULTIPLIER = BUILDER.comment("Multiplier applied to hubResupplyCost when the 'Rifleman' kit resupplies from a Hub/FOB.")
+                .defineInRange("riflemanHubCostMultiplier", 2.0, 1.0, 10.0);
+        SAPPER_CRATE_RESUPPLY_COST = BUILDER.comment("Materials cost for 'Sapper' kit resupply from a Supply Crate (instead of the normal hubResupplyCost). If the crate has less than this amount, resupply is refused entirely.")
+                .defineInRange("sapperCrateResupplyCost", 30, 0, 1000);
+        SAPPER_VEHICLE_RESUPPLY_COST = BUILDER.comment("Materials cost for 'Sapper' kit resupply from a Vehicle (instead of the normal hubResupplyCost). If the vehicle has less than this amount, resupply is refused entirely.")
+                .defineInRange("sapperVehicleResupplyCost", 30, 0, 1000);
+        SAPPER_HUB_COST_MULTIPLIER = BUILDER.comment("Multiplier applied to hubResupplyCost when the 'Sapper' kit resupplies from a Hub/FOB.")
+                .defineInRange("sapperHubCostMultiplier", 2.0, 1.0, 10.0);
+        HUB_PLACEMENT_REQUIRES_CRATE = BUILDER.comment("Does placing a FOB require a Supply Crate nearby? (Consumes the crate, crate gives 0 mats to FOB)")
+                .define("hubPlacementRequiresCrate", false);
+        HUB_SPAWN_COSTS_MATERIALS = BUILDER.comment("Does spawning at FOB cost materials?").define("hubSpawnCostsMaterials", false);
+        HUB_SPAWN_MATERIAL_COST = BUILDER.comment("Material cost to spawn at FOB").defineInRange("hubSpawnMaterialCost", 10, 0, 1000);
+        MAIN_SUPPLY_HEALING = BUILDER.comment("Give regeneration near Main Base?").define("mainSupplyHealing", true);
+        MAIN_SUPPLY_HEAL_RADIUS = BUILDER.comment("Radius for Main Base healing").defineInRange("mainSupplyHealRadius", 5, 1, 50);
+        AUTO_GIVE_SL_RADIO = BUILDER.comment("Automatically give radio to new Squad Leaders").define("autoGiveSlRadio", false);
+        LOW_TICKETS_SIREN = BUILDER.comment("Play siren at 50 tickets").define("lowTicketsSiren", true);
+        VOTE_AUTO_START_TIME = BUILDER.comment("Time in minutes until game starts automatically during voting")
+                .defineInRange("voteAutoStartTime", 10, 1, 60);
+        VOTE_REQUIRED_PERCENTAGE = BUILDER.comment("Percentage of team members needed to be 'Ready'")
+                .defineInRange("voteRequiredPercentage", 100, 1, 100);
+        ENABLE_KNOCKOUT = BUILDER.comment("Enable knockout mechanic").define("enableKnockout", true);
+        REVIVE_ITEM = BUILDER.comment("Registry name of the item used to revive (e.g. 'minecraft:paper')").define("reviveItem", "minecraft:paper");
+        REVIVE_COOLDOWN_SECONDS = BUILDER.comment("Time in seconds where dying again results in instant death").defineInRange("reviveCooldownSeconds", 120, 0, 600);
+        REVIVE_HOLD_SECONDS = BUILDER.comment("Seconds a non-medic must hold the revive key to revive a downed player")
+                .defineInRange("reviveHoldSeconds", 8, 1, 60);
+        MEDIC_REVIVE_HOLD_SECONDS = BUILDER.comment("Seconds a player with the 'Medic' kit must hold the revive key to revive a downed player")
+                .defineInRange("medicReviveHoldSeconds", 3, 1, 60);
+        MAX_DOWNED_TIME_SECONDS = BUILDER.comment("Max time in downed state before bleeding out (seconds)")
+                .defineInRange("maxDownedTimeSeconds", 180, 5, 3600);
+        PREVENT_VEHICLE_INVENTORY_ACCESS = BUILDER.comment("Completely block access to the vehicle inventory (from the outside via Shift+RMB and from the inside by pressing E)")
+                .define("preventVehicleInventoryAccess", true);
+        REQUIRE_OFFICER_FOR_SL = BUILDER.comment("If the squad leader does not have the \"Officer\" kit, the squad will disband after 120 seconds.")
+                .define("requireOfficerForSL", false);
+        PREVENT_ENEMY_VEHICLE_ENTRY = BUILDER.comment("Prevent players from entering vehicles claimed by the enemy team")
+                .define("preventEnemyVehicleEntry", true);
+        REQUIRE_SPECIALIST_TO_DRIVE = BUILDER.comment("If true, only Pilots can fly and only Mechanics can drive heavy vehicles. Others are kicked from driver seat after 5 seconds.")
+                .define("requireSpecialistToDrive", false);
+        AUTO_BALANCE_TEAMS = BUILDER.comment("Force auto-balance. Player cannot join a team if it has more players than the other.")
+                .define("autoBalanceTeams", false);
+        SHOW_KIT_RANKS = BUILDER.comment("Show kit ranks (level icon) between the kit icon and the player name")
+                .define("showKitRanks", false);
+        INVASION_PREP_TIME_MINUTES = BUILDER.comment("Preparation time for defenders in Invasion mode (minutes)")
+                .defineInRange("invasionPrepTimeMinutes", 5, 1, 30);
+        ONE_AMMO_BAG_PER_PLAYER = BUILDER.comment("Prevent players from carrying more than 1 Ammo Bag at a time.")
+                .define("oneAmmoBagPerPlayer", true);
+        REQUIRE_RIFLEMAN_FOR_AMMO_BAG = BUILDER.comment("If true, only players with the 'Rifleman' kit can pick up an Ammo Bag (even their own). Creative mode ignores this.")
+                .define("requireRiflemanForAmmoBag", true);
+        SEPARATE_TEAM_DESTRUCTION_MESSAGES = BUILDER.comment(
+                        "If true, chat messages about a destroyed/dismantled HUB, Rally Point or Vehicle are only " +
+                                "sent to the team that owns/lost it - the opposing team will no longer see these messages. " +
+                                "Players who are not on the BLUE or RED team (spectators, no team, etc.) still see both teams' messages. " +
+                                "If false (default), everyone sees every destruction message like before.")
+                .define("separateTeamDestructionMessages", false);
+        BUILDER.pop();
+
+        BUILDER.push("Balance Settings");
+        MIN_HUB_DISTANCE = BUILDER.defineInRange("minHubDistance", 150, 0, 10000);
+        MIN_RALLY_POINT_DISTANCE = BUILDER.defineInRange("minRallyPointDistance", 150, 0, 10000);
+        HUB_BLOCK_RADIUS = BUILDER.defineInRange("hubBlockRadius", 40, 5, 200);
+        RALLY_BLOCK_RADIUS = BUILDER.defineInRange("rallyBlockRadius", 40, 5, 200);
+        HUB_SOUND_RADIUS = BUILDER.defineInRange("hubSoundRadius", 15, 1, 128);
+        HUB_BUILD_RADIUS = BUILDER.defineInRange("hubBuildRadius", 50, 10, 200);
+        CRATE_BUILD_RADIUS = BUILDER.defineInRange("crateBuildRadius", 50, 5, 200);
+        VOICE_LOCAL_RANGE = BUILDER.comment("Local voice chat (V) range in blocks").defineInRange("voiceLocalRange", 50, 5, 128);
+        HUB_BLOCK_ENEMY_COUNT = BUILDER.defineInRange("hubBlockEnemyCount", 3, 1, 20);
+        RALLY_BLOCK_ENEMY_COUNT = BUILDER.defineInRange("rallyBlockEnemyCount", 1, 1, 20);
+        SUPPLY_TRUCK_CRATES = BUILDER.comment("Max supply crates in a truck").defineInRange("supplyTruckCrates", 2, 1, 20);
+        SUPPLY_CRATE_MATERIALS = BUILDER.comment("Materials per dropped supply crate").defineInRange("supplyCrateMaterials", 50, 10, 1000);
+        BUILDER.pop();
+
+        BUILDER.push("Artillery Settings");
+        ART_REQUEST_COOLDOWN_SECONDS = BUILDER.comment("Personal cooldown of every squad leader for THROWING a request (seconds). Starts when he CONFIRMS the request. Requests are available from the start of the match.")
+                .defineInRange("artRequestCooldownSeconds", 120, 0, 7200);
+        ART_STRIKE_COOLDOWN_MINUTES = BUILDER.comment("Cooldown of the artillery STRIKE itself, shared by the whole team (minutes). Starts when the CMD launches a strike.")
+                .defineInRange("artStrikeCooldownMinutes", 30, 0, 120);
+        ART_INITIAL_COOLDOWN_MINUTES = BUILDER.comment("Strike cooldown of each team at the start of the match (minutes). 0 = the CMD can fire at once.")
+                .defineInRange("artInitialCooldownMinutes", 30, 0, 120);
+        ART_REQUEST_RADIUS = BUILDER.comment("Radius of the request circle on the map (blocks). 37.5 = 75 blocks diameter. Strikes must lie inside it.")
+                .defineInRange("artRequestRadius", 37.5, 5.0, 300.0);
+        ART_REQUEST_MAX_DISTANCE = BUILDER.comment("How far an SL can throw a request with the ping menu (blocks). Server-side raycast over loaded chunks.")
+                .defineInRange("artRequestMaxDistance", 1500, 50, 8192);
+        ART_REQUEST_CONFIRM_SECONDS = BUILDER.comment("Time the SL has to confirm a new request (seconds). Afterwards it is cancelled without cooldown.")
+                .defineInRange("artRequestConfirmSeconds", 60, 5, 600);
+        ART_REQUEST_LIFETIME_SECONDS = BUILDER.comment("Lifetime of a confirmed request until it is used (seconds).")
+                .defineInRange("artRequestLifetimeSeconds", 600, 30, 7200);
+        ART_SHELL_SPAWN_HEIGHT = BUILDER.comment("Y at which shells are spawned (limited to the top of the world).")
+                .defineInRange("artShellSpawnHeight", 318, 64, 2000);
+        ART_SILENCE_SECONDS = BUILDER.comment("Silence between the spotting shots and the first salvo (seconds).")
+                .defineInRange("artSilenceSeconds", 5, 0, 120);
+        ART_SALVO_SECONDS = BUILDER.comment("Length of one salvo (seconds). There are 3 salvos.")
+                .defineInRange("artSalvoSeconds", 15, 1, 120);
+        ART_REST_SECONDS = BUILDER.comment("Pause between two salvos (seconds).")
+                .defineInRange("artRestSeconds", 10, 0, 120);
+        ART_CIRCLE_SPOT_SHELLS = BUILDER.comment("CIRCLE strike: number of spotting shells.")
+                .defineInRange("artCircleSpotShells", 3, 1, 10);
+        ART_CIRCLE_SALVO_SHELLS = BUILDER.comment("CIRCLE strike: shells per salvo (3 salvos). Independent of the radius: bigger circle = thinner fire.")
+                .defineInRange("artCircleSalvoShells", 30, 1, 500);
+        ART_RECT_SPOT_SHELLS = BUILDER.comment("RECTANGLE strike: number of spotting shells.")
+                .defineInRange("artRectSpotShells", 3, 1, 10);
+        ART_RECT_SALVO_SHELLS = BUILDER.comment("RECTANGLE strike: shells per salvo (3 passes). Independent of the size of the rectangle.")
+                .defineInRange("artRectSalvoShells", 35, 1, 500);
+        ART_CIRCLE_MIN_RADIUS = BUILDER.comment("CIRCLE strike: min radius (blocks).")
+                .defineInRange("artCircleMinRadius", 40, 1, 500);
+        ART_CIRCLE_MAX_RADIUS = BUILDER.comment("CIRCLE strike: max radius (blocks). Also limited by the request radius.")
+                .defineInRange("artCircleMaxRadius", 100, 1, 300);
+        ART_RECT_MIN_LENGTH = BUILDER.comment("RECTANGLE strike: min length (blocks).")
+                .defineInRange("artRectMinLength", 30, 1, 600);
+        ART_RECT_MAX_LENGTH = BUILDER.comment("RECTANGLE strike: max length (blocks). Also limited by the request circle.")
+                .defineInRange("artRectMaxLength", 200, 1, 600);
+        ART_RECT_MIN_WIDTH = BUILDER.comment("RECTANGLE strike: min width (blocks).")
+                .defineInRange("artRectMinWidth", 15, 1, 300);
+        ART_RECT_MAX_WIDTH = BUILDER.comment("RECTANGLE strike: max width (blocks). Also limited by the request circle.")
+                .defineInRange("artRectMaxWidth", 150, 1, 300);
+        BUILDER.pop();
+
+        BUILDER.push("UAV Settings");
+        UAV_COOLDOWN_SECONDS = BUILDER.comment("Recon UAV cooldown in seconds (starts at match start, after the UAV is shot down or expires)")
+                .defineInRange("uavCooldownSeconds", 600, 0, 36000);
+        UAV_MIN_RADIUS = BUILDER.comment("Min radius of the UAV flight zone (blocks)")
+                .defineInRange("uavMinRadius", 150, 10, 4000);
+        UAV_MAX_RADIUS = BUILDER.comment("Max radius of the UAV flight zone (blocks)")
+                .defineInRange("uavMaxRadius", 500, 10, 4000);
+        UAV_DURATION_SECONDS = BUILDER.comment("UAV lifetime in seconds")
+                .defineInRange("uavDurationSeconds", 300, 10, 3600);
+        UAV_ALTITUDE = BUILDER.comment("UAV altitude above the average terrain height inside the zone (blocks)")
+                .defineInRange("uavAltitude", 200, 20, 600);
+        UAV_HEALTH = BUILDER.comment("UAV health (iron golem = 100)")
+                .defineInRange("uavHealth", 100, 1, 100000);
+        UAV_SPEED = BUILDER.comment("UAV flight speed in blocks per tick (1.0 = 20 blocks/s)")
+                .defineInRange("uavSpeed", 1.0, 0.1, 5.0);
+        UAV_ZOOM_FOV = BUILDER.comment("FOV (degrees) for the 3 zoom stages of the UAV camera, from weakest to strongest zoom")
+                .defineList("uavZoomFov", java.util.Arrays.<Number>asList(45.0, 25.0, 10.0), o -> o instanceof Number);
+        UAV_MAX_TILT = BUILDER.comment("Max camera deviation from the vertical while looking through the UAV (degrees)")
+                .defineInRange("uavMaxTilt", 50, 1, 120);
+        BUILDER.pop();
+
+        BUILDER.push("Faction Settings");
+        BLUE_TEAM_CUSTOM_NAME = BUILDER.define("blueTeamCustomName", "BLUEFOR");
+        RED_TEAM_CUSTOM_NAME = BUILDER.define("redTeamCustomName", "REDFOR");
+        BUILDER.pop();
+
+        CLIENT_BUILDER.push("Client Visuals");
+        COMPASS_SCALE = CLIENT_BUILDER
+                .comment("Scale of the HUD compass (1 = Small, 2 = Normal, 3 = Large)")
+                .defineInRange("compassScale", 2, 1, 3);
+        CLIENT_BUILDER.pop();
+        CLIENT_SPEC = CLIENT_BUILDER.build();
+
+        SPEC = BUILDER.build();
+    }
+}

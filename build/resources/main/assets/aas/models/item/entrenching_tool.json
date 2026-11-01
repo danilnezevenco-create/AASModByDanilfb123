@@ -1,0 +1,24 @@
+{
+	"parent": "builtin/entity",
+	"gui_light": "front",
+	"textures": {
+		"particle": "aas:item/entrenching_tool"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 0, 0],
+			"translation": [0.75, -3.25, 1.25],
+			"scale": [1, 1, 1]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 0, 0],
+			"translation": [-10.75, -3.25, 0],
+			"scale": [1, 1, 1]
+		},
+		"gui": {
+			"rotation": [0, 0, 0],
+			"translation": [0, 0, 0],
+			"scale": [1, 1, 1]
+		}
+	}
+}

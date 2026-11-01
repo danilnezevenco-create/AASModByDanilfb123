@@ -1,0 +1,216 @@
+{
+  "uav_flight": {
+    "category": "neutral",
+    "sounds": [
+      {
+        "name": "aas:uav_flight",
+        "stream": false
+      }
+    ]
+  },
+  "rally_idle": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "aas:rally_idle",
+        "stream": true
+      }
+    ]
+  },
+  "shovel_dig": {
+    "category": "player",
+    "subtitle": "subtitles.aas.shovel_dig",
+    "sounds": [
+      {
+        "name": "aas:shovel_dig",
+        "stream": false
+      }
+    ]
+  },
+  "station_idle": {
+    "category": "block",
+    "subtitle": "subtitles.aas.station_idle",
+    "sounds": [
+      {
+        "name": "aas:station_idle",
+        "stream": true
+      }
+    ]
+  },
+  "spawn_select": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "aas:spawn_select",
+        "stream": false
+      }
+    ]
+  },
+  "radio_open": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "aas:radio_open",
+        "stream": false
+      }
+    ]
+  },
+  "hub_idle": {
+    "category": "block",
+    "subtitle": "subtitles.aas.hub_idle",
+    "sounds": [
+      {
+        "name": "aas:hub_idle",
+        "stream": true
+      }
+    ]
+  },
+  "radio_beep": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "aas:radio_beep",
+        "stream": false
+      }
+    ]
+  },
+  "m2_load": {
+    "category": "player",
+    "subtitle": "subtitles.aas.m2_load",
+    "sounds": [
+      {
+        "name": "aas:m2_load",
+        "stream": false
+      }
+    ]
+  },
+  "m2_unload": {
+    "category": "player",
+    "subtitle": "subtitles.aas.m2_unload",
+    "sounds": [
+      {
+        "name": "aas:m2_unload",
+        "stream": false
+      }
+    ]
+  },
+  "ags_shoot": {
+    "category": "player",
+    "subtitle": "subtitles.aas.ags_shoot",
+    "sounds": [
+      {
+        "name": "aas:ags_shoot",
+        "stream": false
+      }
+    ]
+  },
+  "m2_shoot": {
+    "category": "player",
+    "subtitle": "subtitles.aas.m2_shoot",
+    "sounds": [
+      {
+        "name": "aas:m2_shoot",
+        "stream": false
+      }
+    ]
+  },
+  "siren_alarm": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "aas:siren_alarm",
+        "stream": false
+      }
+    ]
+  },
+  "player_downed": {
+    "category": "player",
+    "sounds": [
+      "aas:player_downed"
+    ]
+  },
+  "map_marker_place": {
+    "category": "player",
+    "sounds": [ "aas:map_marker_place" ]
+  },
+  "blueprint_place": {
+    "category": "block",
+    "sounds": [ "aas:blueprint_place" ]
+  },
+  "help_scream": {
+    "category": "player",
+    "sounds": [
+      "aas:help_scream"
+    ]
+  },
+  "team_select": {
+    "category": "player",
+    "sounds": [
+      "aas:team_select"
+    ]
+  },
+  "kit_select": {
+    "category": "player",
+    "sounds": [
+      "aas:kit_select"
+    ]
+  },
+  "squad_join": {
+    "category": "player",
+    "sounds": [
+      "aas:squad_join"
+    ]
+  },
+  "squad_leave": {
+    "category": "player",
+    "sounds": [
+      "aas:squad_leave"
+    ]
+  },
+  "ukraine_scream_1": { "category": "player", "sounds": ["aas:ukraine/scream_1"] },
+  "ukraine_scream_2": { "category": "player", "sounds": ["aas:ukraine/scream_2"] },
+  "ukraine_scream_3": { "category": "player", "sounds": ["aas:ukraine/scream_3"] },
+
+  "russia_scream_1": { "category": "player", "sounds": ["aas:russia/scream_1"] },
+  "russia_scream_2": { "category": "player", "sounds": ["aas:russia/scream_2"] },
+  "russia_scream_3": { "category": "player", "sounds": ["aas:russia/scream_3"] },
+
+  "usa_scream_1": { "category": "player", "sounds": ["aas:usa/scream_1"] },
+  "usa_scream_2": { "category": "player", "sounds": ["aas:usa/scream_2"] },
+  "usa_scream_3": { "category": "player", "sounds": ["aas:usa/scream_3"] },
+
+  "nato_scream_1": { "category": "player", "sounds": ["aas:nato/scream_1"] },
+  "nato_scream_2": { "category": "player", "sounds": ["aas:nato/scream_2"] },
+  "nato_scream_3": { "category": "player", "sounds": ["aas:nato/scream_3"] },
+
+  "bluefor_scream_1": { "category": "player", "sounds": ["aas:bluefor/scream_1"] },
+  "bluefor_scream_2": { "category": "player", "sounds": ["aas:bluefor/scream_2"] },
+  "bluefor_scream_3": { "category": "player", "sounds": ["aas:bluefor/scream_3"] },
+
+  "redfor_scream_1": { "category": "player", "sounds": ["aas:redfor/scream_1"] },
+  "redfor_scream_2": { "category": "player", "sounds": ["aas:redfor/scream_2"] },
+  "redfor_scream_3": { "category": "player", "sounds": ["aas:redfor/scream_3"] },
+
+  "insurgency_scream_1": { "category": "player", "sounds": ["aas:insurgency/scream_1"] },
+  "insurgency_scream_2": { "category": "player", "sounds": ["aas:insurgency/scream_2"] },
+  "insurgency_scream_3": { "category": "player", "sounds": ["aas:insurgency/scream_3"] },
+
+  "pmc_scream_1": { "category": "player", "sounds": ["aas:pmc/scream_1"] },
+  "pmc_scream_2": { "category": "player", "sounds": ["aas:pmc/scream_2"] },
+  "pmc_scream_3": { "category": "player", "sounds": ["aas:pmc/scream_3"] },
+
+  "germany_scream_1": { "category": "player", "sounds": ["aas:germany/scream_1"] },
+  "germany_scream_2": { "category": "player", "sounds": ["aas:germany/scream_2"] },
+  "germany_scream_3": { "category": "player", "sounds": ["aas:germany/scream_3"] },
+
+  "militia_scream_1": { "category": "player", "sounds": ["aas:militia/scream_1"] },
+  "militia_scream_2": { "category": "player", "sounds": ["aas:militia/scream_2"] },
+  "militia_scream_3": { "category": "player", "sounds": ["aas:militia/scream_3"] },
+
+  "radio_command_end": {"category": "player", "sounds": [{"name": "aas:radio/command/end_01", "stream": false}, {"name": "aas:radio/command/end_02", "stream": false}, {"name": "aas:radio/command/end_03", "stream": false}, {"name": "aas:radio/command/end_04", "stream": false}, {"name": "aas:radio/command/end_05", "stream": false}, {"name": "aas:radio/command/end_06", "stream": false}, {"name": "aas:radio/command/end_07", "stream": false}]},
+  "radio_command_start": {"category": "player", "sounds": [{"name": "aas:radio/command/start_01", "stream": false}, {"name": "aas:radio/command/start_02", "stream": false}, {"name": "aas:radio/command/start_03", "stream": false}, {"name": "aas:radio/command/start_04", "stream": false}, {"name": "aas:radio/command/start_05", "stream": false}]},
+  "radio_insurgent_end": {"category": "player", "sounds": [{"name": "aas:radio/insurgent/end_01", "stream": false}, {"name": "aas:radio/insurgent/end_02", "stream": false}, {"name": "aas:radio/insurgent/end_03", "stream": false}, {"name": "aas:radio/insurgent/end_04", "stream": false}, {"name": "aas:radio/insurgent/end_05", "stream": false}, {"name": "aas:radio/insurgent/end_06", "stream": false}, {"name": "aas:radio/insurgent/end_07", "stream": false}, {"name": "aas:radio/insurgent/end_08", "stream": false}, {"name": "aas:radio/insurgent/end_09", "stream": false}, {"name": "aas:radio/insurgent/end_10", "stream": false}, {"name": "aas:radio/insurgent/end_11", "stream": false}, {"name": "aas:radio/insurgent/end_12", "stream": false}, {"name": "aas:radio/insurgent/end_13", "stream": false}]},
+  "radio_insurgent_start": {"category": "player", "sounds": [{"name": "aas:radio/insurgent/start_01", "stream": false}, {"name": "aas:radio/insurgent/start_02", "stream": false}, {"name": "aas:radio/insurgent/start_03", "stream": false}, {"name": "aas:radio/insurgent/start_04", "stream": false}, {"name": "aas:radio/insurgent/start_05", "stream": false}, {"name": "aas:radio/insurgent/start_06", "stream": false}, {"name": "aas:radio/insurgent/start_07", "stream": false}, {"name": "aas:radio/insurgent/start_08", "stream": false}, {"name": "aas:radio/insurgent/start_09", "stream": false}, {"name": "aas:radio/insurgent/start_10", "stream": false}, {"name": "aas:radio/insurgent/start_11", "stream": false}, {"name": "aas:radio/insurgent/start_12", "stream": false}, {"name": "aas:radio/insurgent/start_13", "stream": false}, {"name": "aas:radio/insurgent/start_14", "stream": false}, {"name": "aas:radio/insurgent/start_15", "stream": false}, {"name": "aas:radio/insurgent/start_16", "stream": false}]},
+  "radio_squad_end": {"category": "player", "sounds": [{"name": "aas:radio/squad/end_01", "stream": false}, {"name": "aas:radio/squad/end_02", "stream": false}, {"name": "aas:radio/squad/end_03", "stream": false}, {"name": "aas:radio/squad/end_04", "stream": false}, {"name": "aas:radio/squad/end_05", "stream": false}, {"name": "aas:radio/squad/end_06", "stream": false}, {"name": "aas:radio/squad/end_07", "stream": false}, {"name": "aas:radio/squad/end_08", "stream": false}, {"name": "aas:radio/squad/end_09", "stream": false}, {"name": "aas:radio/squad/end_10", "stream": false}, {"name": "aas:radio/squad/end_11", "stream": false}, {"name": "aas:radio/squad/end_12", "stream": false}]},
+  "radio_squad_start": {"category": "player", "sounds": [{"name": "aas:radio/squad/start_01", "stream": false}, {"name": "aas:radio/squad/start_02", "stream": false}, {"name": "aas:radio/squad/start_03", "stream": false}, {"name": "aas:radio/squad/start_04", "stream": false}, {"name": "aas:radio/squad/start_05", "stream": false}, {"name": "aas:radio/squad/start_06", "stream": false}, {"name": "aas:radio/squad/start_07", "stream": false}]}
+}

@@ -1,0 +1,43 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="All Rights Reserved"
+issueTrackerURL="https://github.com/"
+
+[[mods]]
+modId="aas"
+version="1.8.0"
+displayName="Advance And Secure"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/aas"
+logoFile="logo.png"
+credits="Created by danilfb123"
+authors="danilfb123"
+description='''
+    Advance And Secure game mode mod.
+    Developed by danilfb123.
+    Official CurseForge: https://www.curseforge.com/members/danilfb123/projects
+    '''
+
+[[dependencies.aas]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.20.1,1.21)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.aas]]
+modId="forge"
+mandatory=true
+versionRange="[47,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.aas]]
+modId="voicechat"
+mandatory=false
+versionRange="[1.20.1,)"
+# ИСПРАВЛЕНО: было ordering="NONE". AAS регистрирует @ForgeVoicechatPlugin
+# и обращается к VoicechatServerApi - ставим AFTER, чтобы Forge гарантированно
+# грузил AAS только после того, как voicechat (если установлен) полностью
+# инициализирован. Это убирает потенциальную гонку порядка загрузки модов.
+ordering="AFTER"
+side="BOTH"

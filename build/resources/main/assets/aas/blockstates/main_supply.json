@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"facing=north": { "model": "aas:block/main_supply" },
+		"facing=east":  { "model": "aas:block/main_supply", "y": 90 },
+		"facing=south": { "model": "aas:block/main_supply", "y": 180 },
+		"facing=west":  { "model": "aas:block/main_supply", "y": 270 }
+	}
+}

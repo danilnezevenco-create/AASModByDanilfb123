@@ -1,0 +1,230 @@
+
+["Gameplay Settings"]
+	#Grenade destruction
+	agsProjectileDestruction = true
+	#Ammo explosion destruction
+	ammoStackDestruction = true
+	#Digging speed multiplier
+	#Range: 0.1 ~ 10.0
+	diggingSpeedMultiplier = 1.0
+	#If true, in Survival/Adventure mode players CANNOT interact with storage/loot blocks: chests, trapped chests, ender chests, barrels, shulker boxes, furnaces/blast furnaces/smokers, hoppers, dispensers/droppers, brewing stands, trapdoors and anvils. Everything else (doors, fence gates, buttons, levers, crafting table, etc.) is now allowed.
+	restrictInteractionsToDoorsAndGates = false
+	#Prevent players from breaking blocks
+	preventBlockBreaking = false
+	#Allow players to break walls and barbed wire even if PREVENT_BLOCK_BREAKING is true
+	allowBreakingDefenses = true
+	#Prevent item dropping in survival when game is started
+	preventAllItemDrops = false
+	#Cost for kit resupply
+	#Range: 0 ~ 1000
+	hubResupplyCost = 10
+	#Materials cost for 'Drone Operator' kit resupply from a Supply Crate (instead of the normal hubResupplyCost). If the crate has less than this amount, resupply is refused entirely.
+	#Range: 0 ~ 1000
+	droneOperatorCrateResupplyCost = 50
+	#Multiplier applied to hubResupplyCost when the 'Drone Operator' kit resupplies from a Hub/FOB.
+	#Range: 1.0 ~ 10.0
+	droneOperatorHubCostMultiplier = 3.0
+	#Materials cost for 'Drone Operator' kit resupply from a Vehicle (instead of the normal hubResupplyCost). If the vehicle has less than this amount, resupply is refused entirely.
+	#Range: 0 ~ 1000
+	droneOperatorVehicleResupplyCost = 50
+	#Materials cost for 'Rifleman' kit resupply from a Supply Crate/vehicle (instead of the normal hubResupplyCost). If the crate has less than this amount, resupply is refused entirely.
+	#Range: 0 ~ 1000
+	riflemanCrateResupplyCost = 30
+	#Multiplier applied to hubResupplyCost when the 'Rifleman' kit resupplies from a Hub/FOB.
+	#Range: 1.0 ~ 10.0
+	riflemanHubCostMultiplier = 2.0
+	#Materials cost for 'Sapper' kit resupply from a Supply Crate (instead of the normal hubResupplyCost). If the crate has less than this amount, resupply is refused entirely.
+	#Range: 0 ~ 1000
+	sapperCrateResupplyCost = 30
+	#Materials cost for 'Sapper' kit resupply from a Vehicle (instead of the normal hubResupplyCost). If the vehicle has less than this amount, resupply is refused entirely.
+	#Range: 0 ~ 1000
+	sapperVehicleResupplyCost = 30
+	#Multiplier applied to hubResupplyCost when the 'Sapper' kit resupplies from a Hub/FOB.
+	#Range: 1.0 ~ 10.0
+	sapperHubCostMultiplier = 2.0
+	#Does placing a FOB require a Supply Crate nearby? (Consumes the crate, crate gives 0 mats to FOB)
+	hubPlacementRequiresCrate = false
+	#Does spawning at FOB cost materials?
+	hubSpawnCostsMaterials = false
+	#Material cost to spawn at FOB
+	#Range: 0 ~ 1000
+	hubSpawnMaterialCost = 10
+	#Give regeneration near Main Base?
+	mainSupplyHealing = true
+	#Radius for Main Base healing
+	#Range: 1 ~ 50
+	mainSupplyHealRadius = 5
+	#Automatically give radio to new Squad Leaders
+	autoGiveSlRadio = false
+	#Play siren at 50 tickets
+	lowTicketsSiren = true
+	#Time in minutes until game starts automatically during voting
+	#Range: 1 ~ 60
+	voteAutoStartTime = 10
+	#Percentage of team members needed to be 'Ready'
+	#Range: 1 ~ 100
+	voteRequiredPercentage = 100
+	#Enable knockout mechanic
+	enableKnockout = true
+	#Registry name of the item used to revive (e.g. 'minecraft:paper')
+	reviveItem = "minecraft:paper"
+	#Time in seconds where dying again results in instant death
+	#Range: 0 ~ 600
+	reviveCooldownSeconds = 120
+	#Seconds a non-medic must hold the revive key to revive a downed player
+	#Range: 1 ~ 60
+	reviveHoldSeconds = 8
+	#Seconds a player with the 'Medic' kit must hold the revive key to revive a downed player
+	#Range: 1 ~ 60
+	medicReviveHoldSeconds = 3
+	#Max time in downed state before bleeding out (seconds)
+	#Range: 5 ~ 3600
+	maxDownedTimeSeconds = 180
+	#Completely block access to the vehicle inventory (from the outside via Shift+RMB and from the inside by pressing E)
+	preventVehicleInventoryAccess = true
+	#If the squad leader does not have the "Officer" kit, the squad will disband after 120 seconds.
+	requireOfficerForSL = false
+	#Prevent players from entering vehicles claimed by the enemy team
+	preventEnemyVehicleEntry = true
+	#If true, only Pilots can fly and only Mechanics can drive heavy vehicles. Others are kicked from driver seat after 5 seconds.
+	requireSpecialistToDrive = false
+	#Force auto-balance. Player cannot join a team if it has more players than the other.
+	autoBalanceTeams = false
+	#Show kit ranks (level icon) between the kit icon and the player name
+	showKitRanks = false
+	#Preparation time for defenders in Invasion mode (minutes)
+	#Range: 1 ~ 30
+	invasionPrepTimeMinutes = 5
+	#Prevent players from carrying more than 1 Ammo Bag at a time.
+	oneAmmoBagPerPlayer = true
+	#If true, only players with the 'Rifleman' kit can pick up an Ammo Bag (even their own). Creative mode ignores this.
+	requireRiflemanForAmmoBag = true
+	#If true, chat messages about a destroyed/dismantled HUB, Rally Point or Vehicle are only sent to the team that owns/lost it - the opposing team will no longer see these messages. Players who are not on the BLUE or RED team (spectators, no team, etc.) still see both teams' messages. If false (default), everyone sees every destruction message like before.
+	separateTeamDestructionMessages = false
+
+["Balance Settings"]
+	#Range: 0 ~ 10000
+	minHubDistance = 150
+	#Range: 0 ~ 10000
+	minRallyPointDistance = 150
+	#Range: 5 ~ 200
+	hubBlockRadius = 40
+	#Range: 5 ~ 200
+	rallyBlockRadius = 40
+	#Range: 1 ~ 128
+	hubSoundRadius = 15
+	#Range: 10 ~ 200
+	hubBuildRadius = 50
+	#Range: 5 ~ 200
+	crateBuildRadius = 50
+	#Local voice chat (V) range in blocks
+	#Range: 5 ~ 128
+	voiceLocalRange = 50
+	#Range: 1 ~ 20
+	hubBlockEnemyCount = 3
+	#Range: 1 ~ 20
+	rallyBlockEnemyCount = 1
+	#Max supply crates in a truck
+	#Range: 1 ~ 20
+	supplyTruckCrates = 2
+	#Materials per dropped supply crate
+	#Range: 10 ~ 1000
+	supplyCrateMaterials = 50
+
+["UAV Settings"]
+	#Recon UAV cooldown in seconds (starts at match start, after the UAV is shot down or expires)
+	#Range: 0 ~ 36000
+	uavCooldownSeconds = 1
+	#Min radius of the UAV flight zone (blocks)
+	#Range: 10 ~ 4000
+	uavMinRadius = 200
+	#Max radius of the UAV flight zone (blocks)
+	#Range: 10 ~ 4000
+	uavMaxRadius = 500
+	#UAV lifetime in seconds
+	#Range: 10 ~ 3600
+	uavDurationSeconds = 300
+	#UAV altitude above the average terrain height inside the zone (blocks)
+	#Range: 20 ~ 600
+	uavAltitude = 200
+	#UAV health (iron golem = 100)
+	#Range: 1 ~ 100000
+	uavHealth = 100
+	#UAV flight speed in blocks per tick (1.0 = 20 blocks/s)
+	#Range: 0.1 ~ 5.0
+	uavSpeed = 1.0
+	#FOV (degrees) for the 3 zoom stages of the UAV camera, from weakest to strongest zoom
+	uavZoomFov = [45.0, 25.0, 10.0]
+	#Max camera deviation from the vertical while looking through the UAV (degrees)
+	#Range: 1 ~ 120
+	uavMaxTilt = 60
+
+["Faction Settings"]
+	blueTeamCustomName = "BLUEFOR"
+	redTeamCustomName = "REDFOR"
+
+["Artillery Settings"]
+	#Cooldown of the artillery STRIKE itself, shared by the whole team (minutes). Starts when the CMD launches a strike.
+	#Range: 0 ~ 120
+	artStrikeCooldownMinutes = 30
+	#Strike cooldown of each team at the start of the match (minutes). 0 = the CMD can fire at once.
+	#Range: 0 ~ 120
+	artInitialCooldownMinutes = 30
+	#Radius of the request circle on the map (blocks). 37.5 = 75 blocks diameter. Strikes must lie inside it.
+	#Range: 5.0 ~ 300.0
+	artRequestRadius = 37.5
+	#How far an SL can throw a request with the ping menu (blocks). Server-side raycast over loaded chunks.
+	#Range: 50 ~ 8192
+	artRequestMaxDistance = 1500
+	#Time the SL has to confirm a new request (seconds). Afterwards it is cancelled without cooldown.
+	#Range: 5 ~ 600
+	artRequestConfirmSeconds = 60
+	#Lifetime of a confirmed request until it is used (seconds).
+	#Range: 30 ~ 7200
+	artRequestLifetimeSeconds = 600
+	#Y at which shells are spawned (limited to the top of the world).
+	#Range: 64 ~ 2000
+	artShellSpawnHeight = 318
+	#Silence between the spotting shots and the first salvo (seconds).
+	#Range: 0 ~ 120
+	artSilenceSeconds = 5
+	#Length of one salvo (seconds). There are 3 salvos.
+	#Range: 1 ~ 120
+	artSalvoSeconds = 15
+	#Pause between two salvos (seconds).
+	#Range: 0 ~ 120
+	artRestSeconds = 10
+	#CIRCLE strike: number of spotting shells.
+	#Range: 1 ~ 10
+	artCircleSpotShells = 3
+	#CIRCLE strike: shells per salvo (3 salvos). Independent of the radius: bigger circle = thinner fire.
+	#Range: 1 ~ 500
+	artCircleSalvoShells = 30
+	#RECTANGLE strike: number of spotting shells.
+	#Range: 1 ~ 10
+	artRectSpotShells = 3
+	#RECTANGLE strike: shells per salvo (3 passes). Independent of the size of the rectangle.
+	#Range: 1 ~ 500
+	artRectSalvoShells = 30
+	#CIRCLE strike: min radius (blocks).
+	#Range: 1 ~ 500
+	artCircleMinRadius = 10
+	#CIRCLE strike: max radius (blocks). Also limited by the request radius.
+	#Range: 1 ~ 300
+	artCircleMaxRadius = 37
+	#RECTANGLE strike: min length (blocks).
+	#Range: 1 ~ 600
+	artRectMinLength = 20
+	#RECTANGLE strike: max length (blocks). Also limited by the request circle.
+	#Range: 1 ~ 600
+	artRectMaxLength = 70
+	#RECTANGLE strike: min width (blocks).
+	#Range: 1 ~ 300
+	artRectMinWidth = 10
+	#RECTANGLE strike: max width (blocks). Also limited by the request circle.
+	#Range: 1 ~ 300
+	artRectMaxWidth = 35
+	#Personal cooldown of every squad leader for THROWING a request (seconds). Starts when he CONFIRMS the request. Requests are available from the start of the match.
+	#Range: 0 ~ 7200
+	artRequestCooldownSeconds = 120
+

@@ -1,0 +1,224 @@
+package com.example.aas.network;
+
+import com.example.aas.config.AASConfig;
+import com.example.aas.world.AASWorldData;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.core.BlockPos;
+import net.minecraftforge.network.NetworkRegistry;
+import net.minecraftforge.network.PacketDistributor;
+import net.minecraftforge.network.simple.SimpleChannel;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.server.ServerLifecycleHooks;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
+public class PacketHandler {
+    private static final String PROTOCOL_VERSION = "3";
+    public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
+            new ResourceLocation("aas:main"),
+            () -> PROTOCOL_VERSION,
+            PROTOCOL_VERSION::equals,
+            PROTOCOL_VERSION::equals
+    );
+
+    public static void register() {
+        int id = 0;
+        INSTANCE.registerMessage(id++, PacketSyncGameData.class, PacketSyncGameData::encode, PacketSyncGameData::decode, PacketSyncGameData::handle);
+        INSTANCE.registerMessage(id++, PacketSyncPoint.class, PacketSyncPoint::encode, PacketSyncPoint::decode, PacketSyncPoint::handle);
+        INSTANCE.registerMessage(id++, PacketDebugFill.class, PacketDebugFill::encode, PacketDebugFill::decode, PacketDebugFill::handle);
+        INSTANCE.registerMessage(id++, PacketApplyMarker.class, PacketApplyMarker::encode, PacketApplyMarker::decode, PacketApplyMarker::handle);
+        INSTANCE.registerMessage(id++, PacketRespawnRequest.class, PacketRespawnRequest::encode, PacketRespawnRequest::decode, PacketRespawnRequest::handle);
+        INSTANCE.registerMessage(id++, PacketDebugSpawnRally.class, PacketDebugSpawnRally::encode, PacketDebugSpawnRally::decode, PacketDebugSpawnRally::handle);
+        INSTANCE.registerMessage(id++, PacketSpawnGhost.class, PacketSpawnGhost::encode, PacketSpawnGhost::decode, PacketSpawnGhost::handle);
+        INSTANCE.registerMessage(id++, PacketBuildRequest.class, PacketBuildRequest::encode, PacketBuildRequest::decode, PacketBuildRequest::handle);
+        INSTANCE.registerMessage(id++, PacketToggleAim.class, PacketToggleAim::encode, PacketToggleAim::decode, PacketToggleAim::handle);
+        INSTANCE.registerMessage(id++, PacketVehicleShoot.class, PacketVehicleShoot::encode, PacketVehicleShoot::decode, PacketVehicleShoot::handle);
+        INSTANCE.registerMessage(id++, PacketRequestAmmo.class, PacketRequestAmmo::encode, PacketRequestAmmo::decode, PacketRequestAmmo::handle);
+        INSTANCE.registerMessage(id++, PacketDeckVote.class, PacketDeckVote::encode, PacketDeckVote::decode, PacketDeckVote::handle);
+        INSTANCE.registerMessage(id++, PacketRequestDeckInfo.class, PacketRequestDeckInfo::encode, PacketRequestDeckInfo::decode, PacketRequestDeckInfo::handle);
+        INSTANCE.registerMessage(id++, PacketDeckInfo.class, PacketDeckInfo::encode, PacketDeckInfo::decode, PacketDeckInfo::handle);
+        INSTANCE.registerMessage(id++, PacketUpdateDeckParams.class, PacketUpdateDeckParams::encode, PacketUpdateDeckParams::decode, PacketUpdateDeckParams::handle);
+        INSTANCE.registerMessage(id++, PacketSetEditDeck.class, PacketSetEditDeck::encode, PacketSetEditDeck::decode, PacketSetEditDeck::handle);
+        INSTANCE.registerMessage(id++, PacketCopyDeckKits.class, PacketCopyDeckKits::encode, PacketCopyDeckKits::decode, PacketCopyDeckKits::handle);
+        INSTANCE.registerMessage(id++, PacketDropCrate.class, PacketDropCrate::encode, PacketDropCrate::decode, PacketDropCrate::handle);
+        INSTANCE.registerMessage(id++, PacketUpdateSpawner.class, PacketUpdateSpawner::encode, PacketUpdateSpawner::decode, PacketUpdateSpawner::handle);
+        INSTANCE.registerMessage(id++, PacketRecoil.class, PacketRecoil::encode, PacketRecoil::decode, PacketRecoil::handle);
+        INSTANCE.registerMessage(id++, PacketSyncSquads.class, PacketSyncSquads::encode, PacketSyncSquads::new, PacketSyncSquads::handle);
+        INSTANCE.registerMessage(id++, PacketSquadAction.class, PacketSquadAction::encode, PacketSquadAction::decode, PacketSquadAction::handle);
+        INSTANCE.registerMessage(id++, PacketTeamSelect.class, PacketTeamSelect::encode, PacketTeamSelect::decode, PacketTeamSelect::handle);
+        INSTANCE.registerMessage(id++, PacketSquadChat.class, PacketSquadChat::encode, PacketSquadChat::decode, PacketSquadChat::handle);
+        INSTANCE.registerMessage(id++, PacketSyncMapPlayers.class, PacketSyncMapPlayers::encode, PacketSyncMapPlayers::decode, PacketSyncMapPlayers::handle);
+        INSTANCE.registerMessage(id++, PacketOpenKitEditor.class, PacketOpenKitEditor::encode, PacketOpenKitEditor::decode, PacketOpenKitEditor::handle);
+        INSTANCE.registerMessage(id++, PacketSaveKit.class, PacketSaveKit::encode, PacketSaveKit::decode, PacketSaveKit::handle);
+        INSTANCE.registerMessage(id++, PacketRequestKitMenu.class, PacketRequestKitMenu::encode, PacketRequestKitMenu::decode, PacketRequestKitMenu::handle);
+        INSTANCE.registerMessage(id++, PacketOpenPlayerKitMenu.class, PacketOpenPlayerKitMenu::encode, PacketOpenPlayerKitMenu::decode, PacketOpenPlayerKitMenu::handle);
+        INSTANCE.registerMessage(id++, PacketSelectKit.class, PacketSelectKit::encode, PacketSelectKit::decode, PacketSelectKit::handle);
+        INSTANCE.registerMessage(id++, PacketRequestCrateAmmo.class, PacketRequestCrateAmmo::encode, PacketRequestCrateAmmo::decode, PacketRequestCrateAmmo::handle);
+        INSTANCE.registerMessage(id++, PacketRequestKitData.class, PacketRequestKitData::encode, PacketRequestKitData::decode, PacketRequestKitData::handle);
+        INSTANCE.registerMessage(id++, PacketSendKitData.class, PacketSendKitData::encode, PacketSendKitData::decode, PacketSendKitData::handle);
+        INSTANCE.registerMessage(id++, PacketPasteKit.class, PacketPasteKit::encode, PacketPasteKit::decode, PacketPasteKit::handle);
+        INSTANCE.registerMessage(id++, PacketPasteTeam.class, PacketPasteTeam::encode, PacketPasteTeam::decode, PacketPasteTeam::handle);
+        INSTANCE.registerMessage(id++, PacketDownedAction.class, PacketDownedAction::encode, PacketDownedAction::decode, PacketDownedAction::handle);
+        INSTANCE.registerMessage(id++, PacketSyncDownedState.class, PacketSyncDownedState::encode, PacketSyncDownedState::decode, PacketSyncDownedState::handle);
+        INSTANCE.registerMessage(id++, PacketSquadMarker.class, PacketSquadMarker::encode, PacketSquadMarker::decode, PacketSquadMarker::handle);
+        INSTANCE.registerMessage(id++, PacketPlaceMapMarker.class, PacketPlaceMapMarker::encode, PacketPlaceMapMarker::decode, PacketPlaceMapMarker::handle);
+        INSTANCE.registerMessage(id++, PacketRadioAction.class, PacketRadioAction::encode, PacketRadioAction::decode, PacketRadioAction::handle);
+        INSTANCE.registerMessage(id++, PacketVoteAction.class, PacketVoteAction::encode, PacketVoteAction::decode, PacketVoteAction::handle);
+        INSTANCE.registerMessage(id++, PacketRequestVehicleAmmo.class, PacketRequestVehicleAmmo::encode, PacketRequestVehicleAmmo::decode, PacketRequestVehicleAmmo::handle);
+        INSTANCE.registerMessage(id++, PacketCaptureNotification.class, PacketCaptureNotification::encode, PacketCaptureNotification::decode, PacketCaptureNotification::handle);
+        INSTANCE.registerMessage(id++, PacketPlacePing.class, PacketPlacePing::encode, PacketPlacePing::decode, PacketPlacePing::handle);
+        INSTANCE.registerMessage(id++, PacketRequestCMD.class, PacketRequestCMD::encode, PacketRequestCMD::decode, PacketRequestCMD::handle);
+        INSTANCE.registerMessage(id++, PacketCMDVote.class, PacketCMDVote::encode, PacketCMDVote::decode, PacketCMDVote::handle);
+        INSTANCE.registerMessage(id++, PacketSyncMyKit.class, PacketSyncMyKit::encode, PacketSyncMyKit::decode, PacketSyncMyKit::handle);
+        INSTANCE.registerMessage(id++, PacketVoiceActivity.class, PacketVoiceActivity::encode, PacketVoiceActivity::decode, PacketVoiceActivity::handle);
+        INSTANCE.registerMessage(id++, PacketRadioVoiceActivity.class, PacketRadioVoiceActivity::encode, PacketRadioVoiceActivity::decode, PacketRadioVoiceActivity::handle); // РќРћР’РћР•
+        INSTANCE.registerMessage(id++, PacketOpenVictoryScreen.class, PacketOpenVictoryScreen::encode, PacketOpenVictoryScreen::decode, PacketOpenVictoryScreen::handle);
+        INSTANCE.registerMessage(id++, PacketResetVictoryScreen.class, PacketResetVictoryScreen::encode, PacketResetVictoryScreen::decode, PacketResetVictoryScreen::handle);
+        INSTANCE.registerMessage(id++, PacketSyncServerConfig.class, PacketSyncServerConfig::encode, PacketSyncServerConfig::decode, PacketSyncServerConfig::handle);
+        INSTANCE.registerMessage(id++, PacketOpenPointEditor.class, PacketOpenPointEditor::encode, PacketOpenPointEditor::decode, PacketOpenPointEditor::handle);
+        INSTANCE.registerMessage(id++, PacketSavePoint.class, PacketSavePoint::encode, PacketSavePoint::decode, PacketSavePoint::handle);
+        INSTANCE.registerMessage(id++, PacketSyncDragState.class, PacketSyncDragState::encode, PacketSyncDragState::decode, PacketSyncDragState::handle);
+        INSTANCE.registerMessage(id++, PacketSyncPlayerStats.class, PacketSyncPlayerStats::encode, PacketSyncPlayerStats::decode, PacketSyncPlayerStats::handle);
+        INSTANCE.registerMessage(id++, PacketReviveHold.class, PacketReviveHold::encode, PacketReviveHold::decode, PacketReviveHold::handle);
+        INSTANCE.registerMessage(id++, PacketReviveProgress.class, PacketReviveProgress::encode, PacketReviveProgress::decode, PacketReviveProgress::handle);
+        INSTANCE.registerMessage(id++, PacketSquadLeaderPlaytime.class, PacketSquadLeaderPlaytime::encode, PacketSquadLeaderPlaytime::decode, PacketSquadLeaderPlaytime::handle);
+        INSTANCE.registerMessage(id++, PacketDeleteMarker.class, PacketDeleteMarker::encode, PacketDeleteMarker::decode, PacketDeleteMarker::handle);
+        INSTANCE.registerMessage(id++, PacketPlaceRadialMarker.class, PacketPlaceRadialMarker::encode, PacketPlaceRadialMarker::decode, PacketPlaceRadialMarker::handle);
+        INSTANCE.registerMessage(id++, PacketPlayMarkerSound.class, PacketPlayMarkerSound::encode, PacketPlayMarkerSound::decode, PacketPlayMarkerSound::handle);
+        INSTANCE.registerMessage(id++, PacketRequestVehicleList.class, PacketRequestVehicleList::encode, PacketRequestVehicleList::decode, PacketRequestVehicleList::handle);
+        INSTANCE.registerMessage(id++, PacketSyncVehicleList.class, PacketSyncVehicleList::encode, PacketSyncVehicleList::decode, PacketSyncVehicleList::handle);
+        INSTANCE.registerMessage(id++, PacketTeamKillNotification.class, PacketTeamKillNotification::encode, PacketTeamKillNotification::decode, PacketTeamKillNotification::handle);
+        INSTANCE.registerMessage(id++, PacketSyncKitRanks.class, PacketSyncKitRanks::encode, PacketSyncKitRanks::decode, PacketSyncKitRanks::handle);
+        INSTANCE.registerMessage(id++, PacketVoiceChannel.class, PacketVoiceChannel::encode, PacketVoiceChannel::decode, PacketVoiceChannel::handle);
+        INSTANCE.registerMessage(id++, PacketVoiceChannelActivity.class, PacketVoiceChannelActivity::encode, PacketVoiceChannelActivity::decode, PacketVoiceChannelActivity::handle);
+        INSTANCE.registerMessage(id++, PacketFireteamNotification.class, PacketFireteamNotification::encode, PacketFireteamNotification::decode, PacketFireteamNotification::handle);
+        // --- Recon UAV ---
+        INSTANCE.registerMessage(id++, PacketSyncUav.class, PacketSyncUav::encode, PacketSyncUav::decode, PacketSyncUav::handle);
+        INSTANCE.registerMessage(id++, PacketUavLaunch.class, PacketUavLaunch::encode, PacketUavLaunch::decode, PacketUavLaunch::handle);
+        INSTANCE.registerMessage(id++, PacketUavView.class, PacketUavView::encode, PacketUavView::decode, PacketUavView::handle);
+        INSTANCE.registerMessage(id++, PacketUavViewState.class, PacketUavViewState::encode, PacketUavViewState::decode, PacketUavViewState::handle);
+        INSTANCE.registerMessage(id++, PacketUavMarker.class, PacketUavMarker::encode, PacketUavMarker::decode, PacketUavMarker::handle);
+        // Artillery
+        INSTANCE.registerMessage(id++, PacketSyncArtillery.class, PacketSyncArtillery::encode, PacketSyncArtillery::decode, PacketSyncArtillery::handle);
+        INSTANCE.registerMessage(id++, PacketArtRequestAction.class, PacketArtRequestAction::encode, PacketArtRequestAction::decode, PacketArtRequestAction::handle);
+        INSTANCE.registerMessage(id++, PacketArtLaunch.class, PacketArtLaunch::encode, PacketArtLaunch::decode, PacketArtLaunch::handle);
+        INSTANCE.registerMessage(id++, PacketArtNotice.class, PacketArtNotice::encode, PacketArtNotice::decode, PacketArtNotice::handle);
+        INSTANCE.registerMessage(id++, PacketRadioClick.class, PacketRadioClick::encode, PacketRadioClick::decode, PacketRadioClick::handle);
+        INSTANCE.registerMessage(id++, PacketKitAdmin.class, PacketKitAdmin::encode, PacketKitAdmin::decode, PacketKitAdmin::handle);
+        INSTANCE.registerMessage(id++, PacketKitAdminInfo.class, PacketKitAdminInfo::encode, PacketKitAdminInfo::decode, PacketKitAdminInfo::handle);
+    }
+
+    private static String getFactionName(String currentFaction, boolean isBlue) {
+        if (currentFaction == null || currentFaction.equals("none") || currentFaction.equals("bluefor") || currentFaction.equals("redfor")) {
+            return isBlue ? AASConfig.BLUE_TEAM_CUSTOM_NAME.get() : AASConfig.RED_TEAM_CUSTOM_NAME.get();
+        }
+        return currentFaction.toUpperCase();
+    }
+
+    private static Map<String, String> getPlayerKitsMap() {
+        Map<String, String> pKits = new HashMap<>();
+        MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+        if (server != null) {
+            for (ServerPlayer p : server.getPlayerList().getPlayers()) {
+                String current = p.getPersistentData().getString("AAS_CurrentKit");
+                String pending = p.getPersistentData().getString("AAS_PendingKit");
+                String displayKit = (!pending.isEmpty()) ? pending : current;
+                pKits.put(p.getScoreboardName(), (displayKit == null || displayKit.isEmpty() || displayKit.equals("Unassigned")) ? "Unassigned" : displayKit);
+            }
+        }
+        return pKits;
+    }
+    /**
+     * Р Р°СЃСЃС‹Р»Р°РµС‚ Р·РІСѓРє СѓСЃС‚Р°РЅРѕРІРєРё РјРµС‚РєРё РІСЃРµРј СѓС‡Р°СЃС‚РЅРёРєР°Рј РѕС‚СЂСЏРґР°, РљР РћРњР• С‚РѕРіРѕ, РєС‚Рѕ РµС‘ РїРѕСЃС‚Р°РІРёР»
+     * (Сѓ РЅРµРіРѕ Р·РІСѓРє СѓР¶Рµ РїСЂРѕРёРіСЂР°Р»СЃСЏ Р»РѕРєР°Р»СЊРЅРѕ РІ РјРѕРјРµРЅС‚ РєР»РёРєР°, Р±РµР· РѕР¶РёРґР°РЅРёСЏ СЃРµСЂРІРµСЂР°).
+     */
+    public static void playMarkerSoundForSquad(ServerLevel level, List<String> memberNames, ServerPlayer exclude) {
+        MinecraftServer server = level.getServer();
+        if (server == null) return;
+        String excludeName = exclude != null ? exclude.getScoreboardName() : null;
+        for (String name : memberNames) {
+            if (name.equals(excludeName)) continue;
+            ServerPlayer p = server.getPlayerList().getPlayerByName(name);
+            if (p != null) {
+                INSTANCE.send(PacketDistributor.PLAYER.with(() -> p), new PacketPlayMarkerSound());
+            }
+        }
+    }
+    public static void sendToAllClients(int blue, int red, boolean hasBlue, boolean hasRed,
+                                        boolean blueBleed, boolean redBleed, int respawnTime,
+                                        boolean blueBlocked, boolean redBlocked,
+                                        List<AASWorldData.HubInfo> hubs,
+                                        String bFac, String rFac) {
+
+        String bName = getFactionName(bFac, true);
+        String rName = getFactionName(rFac, false);
+
+        // РџР•Р Р•Р”Р•Р›Р«Р’РђР•Рњ РќРђ BUILDER
+        PacketSyncGameData packet = PacketSyncGameData.builder()
+                .tickets(blue, red)
+                .rally(hasBlue, hasRed)
+                .bleeding(blueBleed, redBleed)
+                .respawnTime(respawnTime)
+                .blocked(blueBlocked, redBlocked)
+                .hubs(new ArrayList<>(hubs))
+                .factions(bFac, rFac)
+                .customNames(bName, rName)
+                .playerKits(getPlayerKitsMap())
+                .gameMode("AAS")
+                .invasion("NONE", 0)
+                .build();
+
+        INSTANCE.send(PacketDistributor.ALL.noArg(), packet);
+    }
+
+    public static void sendToAllClients(AASWorldData data, boolean blueBleed, boolean redBleed, boolean bBlocked, boolean rBlocked) {
+        INSTANCE.send(PacketDistributor.ALL.noArg(), createSyncPacket(data, blueBleed, redBleed, bBlocked, rBlocked));
+    }
+
+    public static void sendToAllClients(ServerLevel level, AASWorldData data) {
+        INSTANCE.send(PacketDistributor.DIMENSION.with(level::dimension), createSyncPacket(data, false, false, false, false));
+    }
+
+    private static PacketSyncGameData createSyncPacket(AASWorldData data, boolean blueBleed, boolean redBleed, boolean bBlocked, boolean rBlocked) {
+        boolean hasBlue = !data.blueRallies.isEmpty();
+        boolean hasRed = !data.redRallies.isEmpty();
+
+        String bName = getFactionName(data.blueFaction, true);
+        String rName = getFactionName(data.redFaction, false);
+
+        // РРЎРџРћР›Р¬Р—РЈР•Рњ BUILDER, РўРђРљ РљРђРљ РћР‘Р«Р§РќР«Р™ РљРћРќРЎРўР РЈРљРўРћР  РўР•РџР•Р Р¬ РџР РР’РђРўРќР«Р™
+        return PacketSyncGameData.builder()
+                .tickets(data.blueTickets, data.redTickets)
+                .rally(hasBlue, hasRed)
+                .bleeding(blueBleed, redBleed)
+                .respawnTime(data.respawnTimer)
+                .blocked(bBlocked, rBlocked)
+                .hubSpawnCost(AASConfig.HUB_SPAWN_COSTS_MATERIALS.get(), AASConfig.HUB_SPAWN_MATERIAL_COST.get())
+                .map(data.mapCenterX, data.mapCenterZ, data.mapSizeBlocks, data.currentMapImage)
+                .vehicles(new ArrayList<>(data.markedVehicles))
+                .hubs(new ArrayList<>(data.hubs))
+                .stations(new ArrayList<>(data.vehicleStations))
+                .factions(data.blueFaction, data.redFaction)
+                .customNames(bName, rName)
+                .gameStarted(data.isGameStarted)
+                .capturePoints(new ArrayList<>(data.capturePoints))
+                .spawns(new HashMap<>(data.blueSpawns), new HashMap<>(data.redSpawns), new HashMap<>(data.neutralSpawns))
+                .playerKits(getPlayerKitsMap())
+                .markers(new ArrayList<>(data.activeMarkers))
+                .startVote(data.voteActive, data.voteTimer, new HashMap<>(data.votes))
+                .commanderIds(data.blueCMDId, data.redCMDId)
+                .blueCommanderVote(data.blueCmdVoteActive, data.blueCmdCandidateName, data.blueCmdCandidateId, data.blueCmdVoteTimer, new HashMap<>(data.blueCmdVotes))
+                .redCommanderVote(data.redCmdVoteActive, data.redCmdCandidateName, data.redCmdCandidateId, data.redCmdVoteTimer, new HashMap<>(data.redCmdVotes))
+                .ready(data.blueReady, data.redReady)
+                .gameMode(data.gameMode)
+                .invasion(data.invasionDefender, data.invasionPrepTicks)
+                .decks(com.example.aas.deck.DeckSyncPayload.from(data))
+                .build();
+    }
+}
+
